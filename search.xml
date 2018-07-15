@@ -17,10 +17,10 @@
     <content type="text"><![CDATA[基本知识点关键概念 语言语法和形式 CSS选择器的优先级 继承 盒模型(Box model) 和 外边距合并(margin collapse) 堆叠(Stacking) 格式化上下文（block-formatting contexts） 初始值、计算值、应用值和当前值 CSS简写属性 （CSS shorthand properties） CSS弹性盒子 （CSS Flexible Box Layout） CSS网格布局 （Grid Layout） 媒体查询]]></content>
       <categories>
         <category>CSS</category>
-        <category>CSS总结</category>
       </categories>
       <tags>
         <tag>CSS</tag>
+        <tag>CSS总结</tag>
       </tags>
   </entry>
   <entry>
