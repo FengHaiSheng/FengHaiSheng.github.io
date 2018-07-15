@@ -6,7 +6,6 @@
     <content type="text"><![CDATA[测试环境： safari 11.01 、Chrome 67 、Firefox 61 MDN上关于CSS选择器优先级的介绍https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity ID、class、元素 、属性优先级排名为： ID[属性][伪类] ID[属性] –或– ID[伪类]; 看声明顺序, 后声明的优先级更大 ID class[属性][伪类] 元素[属性][伪类] class[伪类] –或– class[属性]; 看声明顺序，后声明的优先级更大 元素[伪类] –或– 元素[属性]; 看声明顺序，后声明的优先级更大 class 元素 Chrome的实测图 为了便于记忆，我总结了如下规律，将它们转化为数字的加法 ID – 1000 class – 450 元素 – 400 属性 – 100 伪类 – 100 最后，就可以将之转化为如下的数字，以后也不用单独去记忆，用的时候做做加法就行了。 ID[属性][伪类]； 1000 + 100 + 100 = 1200 ID[属性] –或– ID[伪类]; 看声明顺序, 后声明的优先级更大 ； 1000 + 100 = 1100； ID ；1000 class[属性][伪类]；450 + 100 + 100 = 650 元素[属性][伪类]；400 + 100 + 100 = 600； class[伪类] –或– class[属性]; 看声明顺序，后声明的优先级更大；450 + 100 = 450； 元素[伪类] –或– 元素[属性]; 看声明顺序，后声明的优先级更大；400 + 100 = 500； class；450 元素；400 ID、class、元素 混用如果是 元素[class]，也就是ID、class、元素混用的情况，这样的选择器的优先级在哪儿呢？ 这里我不做研究，因为这个代码写出来后你会发现上面的公式乱掉了，我个人是会尽量避免这种写法的。 这种写法不仅仅让优先级难以捉摸，更让代码不好维护。假若某件维护人修改了HTML代码，但是他并不知道CSS需要修改，就会形成BUG。见下面这个例子123&lt;input type=&quot;text&quot; class=&quot;test&quot;&gt;input.test &#123;&#125; 修改为123&lt;select class=&quot;test&quot;&gt;&lt;/select&gt;input.test &#123;&#125; // 这里会形成BUG 如果大家工作有必须有混用的情况，可以基于我的研究之上，再进行研究总结。也可以给我发邮件，我们一起探讨下。 “+”，“~”，“&gt;”，“ ”，“” 选择器的应用“+”，“~”。优先级看顺序，后声明的优先级更大 综合后的优先级为 ID+ID ID[属性] class + ID 或 ID + class ; 看声明顺序 ID class[属性] class+class 元素[属性] class 元素 其实还有更复杂的，那就是 ID + ID[属性]、ID + ID[属性][伪类]。再这样研究下去怕是乱成一团了。 当我们想要刻意去使用优先级来维持好网页表现时，就不应该搞得过于复杂，太复杂的代码真的很容易出BUG. “&gt;”, “ “ 与 “+”, “~” 同时使用时优先级为: ID + ID ID ID ID[属性] class + ID 或 ID + class; 看声明的顺序 class ID) || (ID class ID 元素 ID class[属性] class + class class class 元素[属性] class 元素 class 元素 可以看到，这里已经很复杂了，如果我们再把伪类加上去，把“&gt;”选择器加上去，会如何呢？？ 我感觉会炸，这么复杂的优先级，单单记住都已经很难了，如果再将之应用于产品中，代码会变了不好维护和迭代了。我选择不用，所以后续的也不做研究了。 感想平时我们书写CSS代码时，以我为例，常用的选择器是：class、后代、子代、伪类。ID选择器用的都很少，一般只会用来做做鼻祖元素]]></content>
       <categories>
         <category>CSS</category>
-        <category>CSS总结</category>
       </categories>
       <tags>
         <tag>CSS</tag>
@@ -18,6 +17,7 @@
     <content type="text"><![CDATA[基本知识点关键概念 语言语法和形式 CSS选择器的优先级 继承 盒模型(Box model) 和 外边距合并(margin collapse) 堆叠(Stacking) 格式化上下文（block-formatting contexts） 初始值、计算值、应用值和当前值 CSS简写属性 （CSS shorthand properties） CSS弹性盒子 （CSS Flexible Box Layout） CSS网格布局 （Grid Layout） 媒体查询]]></content>
       <categories>
         <category>CSS</category>
+        <category>CSS总结</category>
       </categories>
       <tags>
         <tag>CSS</tag>
