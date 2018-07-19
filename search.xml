@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[gitment测试]]></title>
+    <url>%2F2018%2F07%2F19%2Fgitment%E6%B5%8B%E8%AF%95%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[CSS选择器的优先级]]></title>
     <url>%2F2018%2F07%2F15%2FCSS%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%2F</url>
     <content type="text"><![CDATA[测试环境： safari 11.01 、Chrome 67 、Firefox 61 MDN上关于CSS选择器优先级的介绍https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity ID、class、元素 、属性优先级排名为： ID[属性][伪类] ID[属性] –或– ID[伪类]; 看声明顺序, 后声明的优先级更大 ID class[属性][伪类] 元素[属性][伪类] class[伪类] –或– class[属性]; 看声明顺序，后声明的优先级更大 元素[伪类] –或– 元素[属性]; 看声明顺序，后声明的优先级更大 class 元素 Chrome的实测图 为了便于记忆，我总结了如下规律，将它们转化为数字的加法 ID – 1000 class – 450 元素 – 400 属性 – 100 伪类 – 100 最后，就可以将之转化为如下的数字，以后也不用单独去记忆，用的时候做做加法就行了。 ID[属性][伪类]； 1000 + 100 + 100 = 1200 ID[属性] –或– ID[伪类]; 看声明顺序, 后声明的优先级更大 ； 1000 + 100 = 1100； ID ；1000 class[属性][伪类]；450 + 100 + 100 = 650 元素[属性][伪类]；400 + 100 + 100 = 600； class[伪类] –或– class[属性]; 看声明顺序，后声明的优先级更大；450 + 100 = 450； 元素[伪类] –或– 元素[属性]; 看声明顺序，后声明的优先级更大；400 + 100 = 500； class；450 元素；400 ID、class、元素 混用如果是 元素[class]，也就是ID、class、元素混用的情况，这样的选择器的优先级在哪儿呢？ 这里我不做研究，因为这个代码写出来后你会发现上面的公式乱掉了，我个人是会尽量避免这种写法的。 这种写法不仅仅让优先级难以捉摸，更让代码不好维护。假若某件维护人修改了HTML代码，但是他并不知道CSS需要修改，就会形成BUG。见下面这个例子123&lt;input type=&quot;text&quot; class=&quot;test&quot;&gt;input.test &#123;&#125; 修改为123&lt;select class=&quot;test&quot;&gt;&lt;/select&gt;input.test &#123;&#125; // 这里会形成BUG 如果大家工作有必须有混用的情况，可以基于我的研究之上，再进行研究总结。也可以给我发邮件，我们一起探讨下。 “+”，“~”，“&gt;”，“ ”，“” 选择器的应用“+”，“~”。优先级看顺序，后声明的优先级更大 综合后的优先级为 ID+ID ID[属性] class + ID 或 ID + class ; 看声明顺序 ID class[属性] class+class 元素[属性] class 元素 其实还有更复杂的，那就是 ID + ID[属性]、ID + ID[属性][伪类]。再这样研究下去怕是乱成一团了。 当我们想要刻意去使用优先级来维持好网页表现时，就不应该搞得过于复杂，太复杂的代码真的很容易出BUG. “&gt;”, “ “ 与 “+”, “~” 同时使用时优先级为: ID + ID ID ID ID[属性] class + ID 或 ID + class; 看声明的顺序 class ID) || (ID class ID 元素 ID class[属性] class + class class class 元素[属性] class 元素 class 元素 可以看到，这里已经很复杂了，如果我们再把伪类加上去，把“&gt;”选择器加上去，会如何呢？？ 我感觉会炸，这么复杂的优先级，单单记住都已经很难了，如果再将之应用于产品中，代码会变了不好维护和迭代了。我选择不用，所以后续的也不做研究了。 感想平时我们书写CSS代码时，以我为例，常用的选择器是：class、后代、子代、伪类。ID选择器用的都很少，一般只会用来做做鼻祖元素]]></content>
@@ -41,6 +46,19 @@
     <content type="text"><![CDATA[教程 安装搜索插件hexo-generator-searchdb ：npm install hexo-generator-searchdb –save 在你的根目录的_config.yml中添加 12345search: path: search.xml field: post format: html limit: 10000 在你的主题(我使用的是next)的_config.yml中，将 123456local_search: enable: false修改为：local_search: enable: true]]></content>
   </entry>
   <entry>
+    <title><![CDATA[跨域的处理方式]]></title>
+    <url>%2F2018%2F03%2F04%2F%E8%B7%A8%E5%9F%9F%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[跨域的原理？解决方式有哪些吗？ 如果两个页面的‘协议’，‘端口’，‘域名’三者任一不同时，便是跨域了。 解决方式： JSONP: 新增了script标签，通过get的方式发起请求并且将数据通过制定的回调函数传回来 CORS: (Cross-Origin Resource Sharing),此规范是针对于API容器的，以减轻跨域HTTP请求的风险。需要后台服务器在请求的response中添加Access-Control-Allow-Origin，*代表所有，也可以指定某个或某些网站 CORS使用场景: 使用 XMLHttpRequest 或 Fetch发起跨站 HTTP 请求。 Web 字体 (CSS 中通过 @font-face 使用跨站字体资源)，因此，网站就可以发布 TrueType 字体资源，并只允许已授权网站进行跨站调用。 WebGL 贴图 使用drawImage绘制 Images/video 画面到canvas. 样式表（使用 CSSOM） Scripts (for unmuted exceptions)]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>每日N问吾身</tag>
+        <tag>JavaScript</tag>
+        <tag>HTTP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Object.defineProperty]]></title>
     <url>%2F2018%2F03%2F04%2FObject.defineProperty%E7%9A%84%E7%94%A8%E6%B3%95%2F</url>
     <content type="text"><![CDATA[Object.defineProperty的用法？其中的set和get的作用? 作用: 直接在一个对象上定义新属性，或者修改一个现有的属性，并会返回该对象。[Object.defineProperty(object, prop, descriptor)] descriptor(属性描述符): 分为数据描述符和存取描述符，两者取其一 数据描述符是一个具有值的属性 存取描述符是有getter-setter函数对，描述的属性 它们具有以下可选健值 configurable：为true时，属性值可被改变，以及除writable特性外的其他特性是否可以被修改，默认为false enumerable：为true时，属性才能出现在对象的枚举属性中(for…in循环和Object.keys()中杯枚举)。默认为false 数据描述符特有的可选健值: value：属性对象的值，可是任何JS值，默认为undefined writable：为true时，value才能被赋值运算符改变，默认为false 存取描述符特有的健值： get：给属性提供getter方法，如果没有getter则为undefined。该方法返回值被用作属性值，默认为undefined set： 给属性提供setter的方法，如果没有seeter则为undefined。该方法接受唯一参数，并将该参数的新值分配给该属性。默认为undefined 描述符可同时具有的健值 分类 configurable enumerable value writable get set 数据描述符 Yes Yes Yes Yes No No 存取描述符 Yes Yes No No Yes Yes 如果一个描述符不具有value，writable，get和set任意一个关键字，那么它将被认为是一个数据描述符。如果一个描述符同时有(value或writable)和(get或set)关键字，将会产生一个异常 set和get的作用? 1234567891011121314151617181920212223function Archiver() &#123; var temperature = null; var archive = []; Object.defineProperty(this, &apos;temperature&apos;, &#123; get: function() &#123; console.log(&apos;get!&apos;); return temperature; &#125;, set: function() &#123; trmperature = value; archive.push(&#123;val: temperature&#125;); &#125; &#125;); this.getArchive = function() &#123; return archive; &#125;&#125;var arc = new Archiver();arc.temperature; // 打印出&apos;get!&apos;arc.temperature = 11;arc.temperature = 13;arc.getArchive(); // [&#123;val:11&#125;, &#123;val: 13&#125;]]]></content>
@@ -53,16 +71,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[跨域的处理方式]]></title>
-    <url>%2F2018%2F03%2F04%2F%E8%B7%A8%E5%9F%9F%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[跨域的原理？解决方式有哪些吗？ 如果两个页面的‘协议’，‘端口’，‘域名’三者任一不同时，便是跨域了。 解决方式： JSONP: 新增了script标签，通过get的方式发起请求并且将数据通过制定的回调函数传回来 CORS: (Cross-Origin Resource Sharing),此规范是针对于API容器的，以减轻跨域HTTP请求的风险。需要后台服务器在请求的response中添加Access-Control-Allow-Origin，*代表所有，也可以指定某个或某些网站 CORS使用场景: 使用 XMLHttpRequest 或 Fetch发起跨站 HTTP 请求。 Web 字体 (CSS 中通过 @font-face 使用跨站字体资源)，因此，网站就可以发布 TrueType 字体资源，并只允许已授权网站进行跨站调用。 WebGL 贴图 使用drawImage绘制 Images/video 画面到canvas. 样式表（使用 CSSOM） Scripts (for unmuted exceptions)]]></content>
+    <title><![CDATA[JS数据去重]]></title>
+    <url>%2F2018%2F03%2F01%2F%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%2F</url>
+    <content type="text"><![CDATA[我用过的数组去重的方式有哪些？答： 利用Set: 1234var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var set = new Set(a.concat(b));// 或者 var set = new Set(a.concat(b));console.log(...set); 时间复杂度M+N 12345678910111213var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var obj = &#123;&#125;;for(var i = 0; i &lt; a.length; i++) &#123; var temp = a[i]; obj[temp] = true;&#125;for(var j = 0; j &lt; b.length; j++) &#123; var temp = b[j]; if(!(obj[temp])) &#123; a.push(temp); &#125;&#125;console.log(a); 时间复杂度M or N 123456789var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var newArr = b.slice(0);for(var j = 0; j &lt; a.length; j++) &#123; const temp = a[i]; if(newArr.indexOf(temp) &lt; 0) &#123; newArr.push(temp); &#125;&#125; 123456789var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var newArr = a.slice(0);for(var j = 0; j &lt; b.length; j++) &#123; const temp = b[j]; if(newArr.indexOf(temp) &lt; 0) &#123; newArr.push(temp); &#125;&#125;]]></content>
       <categories>
         <category>JavaScript</category>
       </categories>
       <tags>
         <tag>每日N问吾身</tag>
         <tag>JavaScript</tag>
-        <tag>HTTP</tag>
       </tags>
   </entry>
   <entry>
@@ -90,15 +107,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[JS数据去重]]></title>
-    <url>%2F2018%2F03%2F01%2F%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%2F</url>
-    <content type="text"><![CDATA[我用过的数组去重的方式有哪些？答： 利用Set: 1234var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var set = new Set(a.concat(b));// 或者 var set = new Set(a.concat(b));console.log(...set); 时间复杂度M+N 12345678910111213var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var obj = &#123;&#125;;for(var i = 0; i &lt; a.length; i++) &#123; var temp = a[i]; obj[temp] = true;&#125;for(var j = 0; j &lt; b.length; j++) &#123; var temp = b[j]; if(!(obj[temp])) &#123; a.push(temp); &#125;&#125;console.log(a); 时间复杂度M or N 123456789var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var newArr = b.slice(0);for(var j = 0; j &lt; a.length; j++) &#123; const temp = a[i]; if(newArr.indexOf(temp) &lt; 0) &#123; newArr.push(temp); &#125;&#125; 123456789var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var newArr = a.slice(0);for(var j = 0; j &lt; b.length; j++) &#123; const temp = b[j]; if(newArr.indexOf(temp) &lt; 0) &#123; newArr.push(temp); &#125;&#125;]]></content>
+    <title><![CDATA[按钮点击时的阴影]]></title>
+    <url>%2F2018%2F02%2F28%2F%E6%8C%89%E9%92%AE%E7%82%B9%E5%87%BB%E6%97%B6%E7%9A%84%E9%98%B4%E5%BD%B1%2F</url>
+    <content type="text"><![CDATA[button的四种伪类？如何更改按钮点击时外部出现的阴影？1. :focus, :active, :visited, :hover 2. button:focus { outline: none; }]]></content>
       <categories>
-        <category>JavaScript</category>
+        <category>CSS</category>
       </categories>
       <tags>
+        <tag>CSS</tag>
         <tag>每日N问吾身</tag>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -109,8 +126,8 @@
         <category>CSS</category>
       </categories>
       <tags>
-        <tag>每日N问吾身</tag>
         <tag>CSS</tag>
+        <tag>每日N问吾身</tag>
       </tags>
   </entry>
   <entry>
@@ -121,20 +138,8 @@
         <category>CSS</category>
       </categories>
       <tags>
-        <tag>每日N问吾身</tag>
         <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[按钮点击时的阴影]]></title>
-    <url>%2F2018%2F02%2F28%2F%E6%8C%89%E9%92%AE%E7%82%B9%E5%87%BB%E6%97%B6%E7%9A%84%E9%98%B4%E5%BD%B1%2F</url>
-    <content type="text"><![CDATA[button的四种伪类？如何更改按钮点击时外部出现的阴影？1. :focus, :active, :visited, :hover 2. button:focus { outline: none; }]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-      <tags>
         <tag>每日N问吾身</tag>
-        <tag>CSS</tag>
       </tags>
   </entry>
 </search>
