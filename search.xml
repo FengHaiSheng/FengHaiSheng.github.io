@@ -101,9 +101,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[JS数据去重]]></title>
-    <url>%2F2018%2F03%2F01%2F%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%2F</url>
-    <content type="text"><![CDATA[我用过的数组去重的方式有哪些？答： 利用Set: 1234var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var set = new Set(a.concat(b));// 或者 var set = new Set(a.concat(b));console.log(...set); 时间复杂度M+N 12345678910111213var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var obj = &#123;&#125;;for(var i = 0; i &lt; a.length; i++) &#123; var temp = a[i]; obj[temp] = true;&#125;for(var j = 0; j &lt; b.length; j++) &#123; var temp = b[j]; if(!(obj[temp])) &#123; a.push(temp); &#125;&#125;console.log(a); 时间复杂度M or N 123456789var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var newArr = b.slice(0);for(var j = 0; j &lt; a.length; j++) &#123; const temp = a[i]; if(newArr.indexOf(temp) &lt; 0) &#123; newArr.push(temp); &#125;&#125; 123456789var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var newArr = a.slice(0);for(var j = 0; j &lt; b.length; j++) &#123; const temp = b[j]; if(newArr.indexOf(temp) &lt; 0) &#123; newArr.push(temp); &#125;&#125;]]></content>
+    <title><![CDATA[yield与return]]></title>
+    <url>%2F2018%2F03%2F01%2Fyield%E4%B8%8Ereturn%2F</url>
+    <content type="text"><![CDATA[###如果把yield和return一起使用，当return在下一个yield之前，会如何？一行之中多个yield会如何？ 下一个yield不会执行，会返回 {value: ‘return的值’, done: true} 多个yield一行中连用时，会如正常yield一样运行，只不过后面next的返回的value为undefined]]></content>
       <categories>
         <category>JavaScript</category>
       </categories>
@@ -113,9 +113,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[yield与return]]></title>
-    <url>%2F2018%2F03%2F01%2Fyield%E4%B8%8Ereturn%2F</url>
-    <content type="text"><![CDATA[###如果把yield和return一起使用，当return在下一个yield之前，会如何？一行之中多个yield会如何？ 下一个yield不会执行，会返回 {value: ‘return的值’, done: true} 多个yield一行中连用时，会如正常yield一样运行，只不过后面next的返回的value为undefined]]></content>
+    <title><![CDATA[JS数据去重]]></title>
+    <url>%2F2018%2F03%2F01%2F%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%2F</url>
+    <content type="text"><![CDATA[我用过的数组去重的方式有哪些？答： 利用Set: 1234var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var set = new Set(a.concat(b));// 或者 var set = new Set(a.concat(b));console.log(...set); 时间复杂度M+N 12345678910111213var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var obj = &#123;&#125;;for(var i = 0; i &lt; a.length; i++) &#123; var temp = a[i]; obj[temp] = true;&#125;for(var j = 0; j &lt; b.length; j++) &#123; var temp = b[j]; if(!(obj[temp])) &#123; a.push(temp); &#125;&#125;console.log(a); 时间复杂度M or N 123456789var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var newArr = b.slice(0);for(var j = 0; j &lt; a.length; j++) &#123; const temp = a[i]; if(newArr.indexOf(temp) &lt; 0) &#123; newArr.push(temp); &#125;&#125; 123456789var a = [1,2,3,4,6], b = [1,4,5,6,7,8];var newArr = a.slice(0);for(var j = 0; j &lt; b.length; j++) &#123; const temp = b[j]; if(newArr.indexOf(temp) &lt; 0) &#123; newArr.push(temp); &#125;&#125;]]></content>
       <categories>
         <category>JavaScript</category>
       </categories>
