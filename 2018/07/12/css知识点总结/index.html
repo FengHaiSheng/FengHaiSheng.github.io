@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="基本知识点关键概念 语言语法和形式 CSS选择器的优先级 继承 盒模型(Box model)  外边距合并(margin collapse) 堆叠(Stacking) 格式化上下文（block-formatting contexts） 初始值、计算值、应用值和当前值 CSS简写属性 （CSS shorthand properties） CSS弹性盒子 （CSS Flexible Box Layou">
+<meta name="description" content="基本知识点关键概念 语言语法和形式 CSS选择器的优先级 继承 盒模型(Box model)  外边距合并(margin collapse) 堆叠(层叠)(Stacking) 格式化上下文（block-formatting contexts） 初始值、计算值、应用值和当前值 CSS简写属性 （CSS shorthand properties） CSS弹性盒子 （CSS Flexible Box L">
 <meta name="keywords" content="CSS,CSS总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS知识点总结">
 <meta property="og:url" content="http://yoursite.com/2018/07/12/css知识点总结/index.html">
 <meta property="og:site_name" content="技术博客">
-<meta property="og:description" content="基本知识点关键概念 语言语法和形式 CSS选择器的优先级 继承 盒模型(Box model)  外边距合并(margin collapse) 堆叠(Stacking) 格式化上下文（block-formatting contexts） 初始值、计算值、应用值和当前值 CSS简写属性 （CSS shorthand properties） CSS弹性盒子 （CSS Flexible Box Layou">
+<meta property="og:description" content="基本知识点关键概念 语言语法和形式 CSS选择器的优先级 继承 盒模型(Box model)  外边距合并(margin collapse) 堆叠(层叠)(Stacking) 格式化上下文（block-formatting contexts） 初始值、计算值、应用值和当前值 CSS简写属性 （CSS shorthand properties） CSS弹性盒子 （CSS Flexible Box L">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-22T15:18:46.781Z">
+<meta property="og:updated_time" content="2018-07-27T20:17:19.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS知识点总结">
-<meta name="twitter:description" content="基本知识点关键概念 语言语法和形式 CSS选择器的优先级 继承 盒模型(Box model)  外边距合并(margin collapse) 堆叠(Stacking) 格式化上下文（block-formatting contexts） 初始值、计算值、应用值和当前值 CSS简写属性 （CSS shorthand properties） CSS弹性盒子 （CSS Flexible Box Layou">
+<meta name="twitter:description" content="基本知识点关键概念 语言语法和形式 CSS选择器的优先级 继承 盒模型(Box model)  外边距合并(margin collapse) 堆叠(层叠)(Stacking) 格式化上下文（block-formatting contexts） 初始值、计算值、应用值和当前值 CSS简写属性 （CSS shorthand properties） CSS弹性盒子 （CSS Flexible Box L">
 
 
 
@@ -402,12 +402,12 @@
 <li><a href="/2018/07/15/CSS选择器的优先级/">CSS选择器的优先级</a></li>
 <li><a href="/2018/07/19/CSS属性继承/">继承</a></li>
 <li><a href="/2018/07/22/CSS盒模型/">盒模型(Box model) </a></li>
-<li>外边距合并(margin collapse)</li>
-<li>堆叠(Stacking)</li>
-<li>格式化上下文（block-formatting contexts）</li>
-<li>初始值、计算值、应用值和当前值</li>
-<li>CSS简写属性 （CSS shorthand properties）</li>
-<li>CSS弹性盒子 （CSS Flexible Box Layout）</li>
+<li><a href="/2018/07/23/CSS外边距合并">外边距合并(margin collapse)</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context" target="_blank" rel="noopener">堆叠(层叠)(Stacking)</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="noopener">格式化上下文（block-formatting contexts）</a></li>
+<li><a href="/2018/07/27/CSS属性不同情况下的值">初始值、计算值、应用值和当前值</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Shorthand_properties" target="_blank" rel="noopener">CSS简写属性 （CSS shorthand properties）</a></li>
+<li><a href="/2018/07/27/CSS弹性盒子">CSS弹性盒子 （CSS Flexible Box Layout）</a></li>
 <li>CSS网格布局 （Grid Layout）</li>
 <li>媒体查询</li>
 </ul>
@@ -539,7 +539,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -550,7 +550,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -561,7 +561,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
