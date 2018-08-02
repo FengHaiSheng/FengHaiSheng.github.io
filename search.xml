@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CSS网格布局]]></title>
+    <url>%2F2018%2F07%2F30%2FCSS%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80%2F</url>
+    <content type="text"><![CDATA[CSS 网格布局MDN教程 专业术语 网格(Grid): 通过设置display: grid; 可以将元素定义为一个网格; grid-template-rows 和 grid-template-columns 分别设置网格的行数和列数 网格线(Grid Line): 在显示创建轨道的同时，会创建网格线。见下图1 网格轨道(Grid tracks): 两条网格线之间的空间, 轨道大小的设置方式参见MDN的教程。 网格单元(Grid Cell): 四条网格线之间的空间，是CSS网格中的最小单元，有点类似于表格的单元格 网格区域(Grid Areas): 是网格中有一个或多个网格单元格组成的区域。网格区域一定是矩形的！ 网格间隙(Gutters): 是网格轨道之间的间距 网格轴(Grid Axis) 图1 2018-08-02 最近有点忙，CSS总结落后了。]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ckeditor自动聚焦]]></title>
+    <url>%2F2018%2F07%2F30%2Fckeditor%E8%87%AA%E5%8A%A8%E8%81%9A%E7%84%A6%2F</url>
+    <content type="text"><![CDATA[Ckeditor是一个比较流行的编辑器框架: 官网 我遇到的问题当执行初始化Ckeditor操作后，能否自动将光标聚焦在编辑器内。 解决思路： 我起初是想通过focus()的方式来解决，官方确实也提供了focus()方面的API，但实际并不行。 我想到了stackoverflow,现在上面找找答案，黄天不负有心人，解决地址为: here 最终方式:加入 startupFocus: true;1234CKEDITOR.replace(&apos;editor1&apos;,&#123; startupFocus : true,... 效果图图一是初始化之前， 图二是初始化之后]]></content>
+      <categories>
+        <category>总结</category>
+        <category>日常开发</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CSS弹性盒子]]></title>
     <url>%2F2018%2F07%2F28%2FCSS%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90%2F</url>
     <content type="text"><![CDATA[CSS弹性盒子(Flexible Box 或 Flexbox): MDN教程 概念看MDN即可。 何时使用它当页面需要使用不同的屏幕尺寸和不同的显示设备时。 特性 不需依赖float就能在行或列进行上布局，并且能以弹性尺寸来适应空间 flex容器的边缘不会与其他内容折叠 元素的显示顺序可以与它们在源代码中的顺序无关，所以弹性项目的定位更加便捷了，简单的代码即可完成复杂的布局 布局相关核心概念各个词汇的具体含义，请参照MDN的教程，上面写的很详细: 地址 弹性容器(Flex contaner)：包含着弹性项目的弹性容器。通过设置 display 属性的值为 flex 或 inline-flex 来定义弹性容器。 弹性项目(Flex item)：弹性容器的每个子元素都称为弹性项目。弹性容器直接包含的文本将被包覆成匿名弹性单元。 轴(Axis) : 分为主轴和侧轴; 每个弹性框布局包含两个轴。弹性项目沿其依次排列的那根轴称为主轴(main axis)。垂直于主轴的那根轴称为侧轴(cross axis)。相关属性：flex-direction、justify-content、align-items、align-self 方向(Direction). 相关属性：order、flex-flow 行(Line): 根据 flex-wrap 属性，弹性项目可以排布在单个行或者多个行中。此属性控制侧轴的方向和新行排列的方向。 尺寸(Dimension)： 根据弹性容器的主轴与侧轴，弹性项目的宽和高中，对应主轴的称为主轴尺寸(main size) ，对应侧轴的称为 侧轴尺寸(cross size)。相关属性：flex flex相关的属性简述 align-content: 定义于弹性容器上，当弹性项目换行/列时：先收拢行/列，再设置他们在侧轴上的排列方式。flex-wrap可以让弹性项目换行/列 justify-content: 定义弹性项目在主轴上的排列规则 align-items: 定于单个弹性项目在侧轴上的排列方式。与align-content不同的是，它不需要弹性项目换行/列；align-content改变的整个行的排列方式，align-items改变的是元素的排列方式(相当于给每个弹性项目设置相同的align-self值). 下面的图1和图2可以看出区别。 flex-direction: 定义主轴的方向 flex-wrap: 可以让flex弹性项目换行/列的属性 flex-flow: flex-direction 和 flex-wrap 的简写。 order: 可以设置可伸缩弹性项目在布局时的顺序。但是并不会影响元素的逻辑和tab顺序; 虽然视觉顺序变了，但是:last-child选择的仍然是HTML代码中的最后一个弹性项目。 align-self: 定义在弹性项目上，更改此弹性项目在侧轴上的排列方式 flex-grow: 定义在弹性项目上，设置它的拉伸因子。通俗点讲，当弹性项目平均分配width时，它可以改变某个元素分得的空间更多或更少。值越大分得越多 flex-shrink: 定义在弹性项目上，指定了元素的收缩规则(当弹性项目的宽度之和大于弹性容器的宽度时，弹性项目就会收缩)，值越大收缩的越厉害。 flex-basis: 定义与弹性项目上，指定了元素在主轴上默认的大小 flex: flex-grow flex-shrink flex-basis的总写。 图1图2 不影响弹性盒子的属性 多栏布局模块的 column-* 属性对弹性项目无效。 float 与 clear 对弹性项目无效。使用 float 将使元素的 display 属性计为block。 vertical-align 对弹性项目的对齐无效。 友情提示这篇文章类似于一个目录，让我们快速知道flex到底包含了什么，至于怎么样去使用此项技术进行页面布局，还需要多练多看咯！ 再来看看我做的一张思维套图，仅供参考。]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[CSS属性不同情况下的值]]></title>
@@ -158,18 +187,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[overflow能清除浮动?]]></title>
-    <url>%2F2018%2F02%2F28%2Foverflow%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%2F</url>
-    <content type="text"><![CDATA[为什么overflow: hidden; 能清除浮动？overflow: hidden后，元素的box-shadow还存在吗？visibility: hidden;1. 在没有明确设定容器高情况下，overflow: hidden;要计算内容全部高度才能确定在什么位置hidden，浮动的高度就要被计算进去，顺带达成了清理浮动的目标 2. box-shadow仍然存在]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-      <tags>
-        <tag>CSS</tag>
-        <tag>每日N问吾身</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[按钮点击时的阴影]]></title>
     <url>%2F2018%2F02%2F28%2F%E6%8C%89%E9%92%AE%E7%82%B9%E5%87%BB%E6%97%B6%E7%9A%84%E9%98%B4%E5%BD%B1%2F</url>
     <content type="text"><![CDATA[button的四种伪类？如何更改按钮点击时外部出现的阴影？1. :focus, :active, :visited, :hover 2. button:focus { outline: none; }]]></content>
@@ -185,6 +202,18 @@
     <title><![CDATA[absolute定位后，元素高宽]]></title>
     <url>%2F2018%2F02%2F28%2Fabsolute%E5%AE%9A%E4%BD%8D%E5%90%8E%E5%85%83%E7%B4%A0%E7%9A%84%E5%AE%BD%E9%AB%98%2F</url>
     <content type="text"><![CDATA[当元素absolute定位后，他的高宽默认为多少？设置width: 100%;height:100%后，宽度会如何计算? 会忽略padding，margin吗？1. 如果不写width, height，他们的值都为0； 2. 设置width: 100%; height: 100%; 后，他们的值会继承自它相对于定位的那个祖先元素 3. margin，padding仍然是有效的]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>每日N问吾身</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[overflow能清除浮动?]]></title>
+    <url>%2F2018%2F02%2F28%2Foverflow%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%2F</url>
+    <content type="text"><![CDATA[为什么overflow: hidden; 能清除浮动？overflow: hidden后，元素的box-shadow还存在吗？visibility: hidden;1. 在没有明确设定容器高情况下，overflow: hidden;要计算内容全部高度才能确定在什么位置hidden，浮动的高度就要被计算进去，顺带达成了清理浮动的目标 2. box-shadow仍然存在]]></content>
       <categories>
         <category>CSS</category>
       </categories>

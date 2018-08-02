@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="技术博客">
+<meta name="description" content="古逸居">
 <meta property="og:type" content="website">
-<meta property="og:title" content="技术博客">
+<meta property="og:title" content="古逸居">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="技术博客">
-<meta property="og:description" content="技术博客">
+<meta property="og:site_name" content="古逸居">
+<meta property="og:description" content="古逸居">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技术博客">
-<meta name="twitter:description" content="技术博客">
+<meta name="twitter:title" content="古逸居">
+<meta name="twitter:description" content="古逸居">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <title>技术博客</title>
+  <title>古逸居</title>
   
 
 
@@ -155,7 +155,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">技术博客</span>
+        <span class="site-title">古逸居</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -286,16 +286,331 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/28/CSS弹性盒子/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/30/CSS网格布局/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴博">
+      <meta itemprop="name" content="风海生">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
+      <meta itemprop="name" content="古逸居">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/30/CSS网格布局/" itemprop="url">CSS网格布局</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-30T20:19:37+08:00">
+                2018-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="CSS-网格布局"><a href="#CSS-网格布局" class="headerlink" title="CSS 网格布局"></a>CSS 网格布局</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout" target="_blank" rel="noopener">MDN教程</a></p>
+<h3 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h3><ol>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Grid" target="_blank" rel="noopener">网格(Grid)</a>: 通过设置display: grid; 可以将元素定义为一个<code>网格</code>; grid-template-rows 和 grid-template-columns 分别设置网格的行数和列数</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Grid_lines" target="_blank" rel="noopener">网格线(Grid Line)</a>: 在显示创建轨道的同时，会创建网格线。见下图1</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Grid_tracks" target="_blank" rel="noopener">网格轨道(Grid tracks)</a>: 两条<code>网格线</code>之间的空间, 轨道大小的设置方式参见MDN的教程。</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Grid_cell" target="_blank" rel="noopener">网格单元(Grid Cell)</a>: 四条网格线之间的空间，是CSS网格中的最小单元，有点类似于表格的单元格</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Grid_areas" target="_blank" rel="noopener">网格区域(Grid Areas)</a>: 是网格中有一个或多个网格单元格组成的区域。网格区域一定是矩形的！</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Gutters" target="_blank" rel="noopener">网格间隙(Gutters)</a>: 是网格轨道之间的间距</li>
+<li><a href="">网格轴(Grid Axis)</a></li>
+</ol>
+<p>图1<br><img src="/images/css/Grid-lines.png" alt="image"></p>
+<p>2018-08-02 最近有点忙，CSS总结落后了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/30/ckeditor自动聚焦/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="风海生">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="古逸居">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/30/ckeditor自动聚焦/" itemprop="url">ckeditor自动聚焦</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-30T12:39:13+08:00">
+                2018-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/总结/" itemprop="url" rel="index">
+                    <span itemprop="name">总结</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/总结/日常开发/" itemprop="url" rel="index">
+                    <span itemprop="name">日常开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Ckeditor"><a href="#Ckeditor" class="headerlink" title="Ckeditor"></a>Ckeditor</h3><p>是一个比较流行的编辑器框架: <a href="https://ckeditor.com/ckeditor-4/#document" target="_blank" rel="noopener">官网</a></p>
+<h3 id="我遇到的问题"><a href="#我遇到的问题" class="headerlink" title="我遇到的问题"></a>我遇到的问题</h3><p>当执行初始化Ckeditor操作后，能否自动将<code>光标</code>聚焦在编辑器内。</p>
+<p>解决思路：</p>
+<ol>
+<li>我起初是想通过focus()的方式来解决，官方确实也提供了focus()方面的API，但实际并不行。</li>
+<li>我想到了stackoverflow,现在上面找找答案，黄天不负有心人，解决地址为: <a href="https://stackoverflow.com/questions/5640477/ckeditor-focus-in-instanceready-event-is-not-working" target="_blank" rel="noopener">here</a></li>
+</ol>
+<p>最终方式:<br>加入 startupFocus: true;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CKEDITOR.replace(&apos;editor1&apos;,</div><div class="line">&#123;</div><div class="line">    startupFocus : true,</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p>图一是初始化之前， 图二是初始化之后</p>
+<p><img src="images/js/ckeditor-1.png" alt="image"><br><img src="images/js/ckeditor-2.png" alt="image"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/28/CSS弹性盒子/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="风海生">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="古逸居">
     </span>
 
     
@@ -327,6 +642,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -447,13 +784,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/27/CSS属性不同情况下的值/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴博">
+      <meta itemprop="name" content="风海生">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
+      <meta itemprop="name" content="古逸居">
     </span>
 
     
@@ -603,13 +940,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/select2使用问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴博">
+      <meta itemprop="name" content="风海生">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
+      <meta itemprop="name" content="古逸居">
     </span>
 
     
@@ -750,13 +1087,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/CSS外边距合并/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴博">
+      <meta itemprop="name" content="风海生">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
+      <meta itemprop="name" content="古逸居">
     </span>
 
     
@@ -928,13 +1265,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/22/CSS盒模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴博">
+      <meta itemprop="name" content="风海生">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
+      <meta itemprop="name" content="古逸居">
     </span>
 
     
@@ -1090,13 +1427,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/19/CSS属性继承/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴博">
+      <meta itemprop="name" content="风海生">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
+      <meta itemprop="name" content="古逸居">
     </span>
 
     
@@ -1248,13 +1585,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/CSS选择器的优先级/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴博">
+      <meta itemprop="name" content="风海生">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
+      <meta itemprop="name" content="古逸居">
     </span>
 
     
@@ -1462,13 +1799,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/css知识点总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴博">
+      <meta itemprop="name" content="风海生">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
+      <meta itemprop="name" content="古逸居">
     </span>
 
     
@@ -1573,285 +1910,10 @@
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="noopener">格式化上下文（block-formatting contexts）</a></li>
 <li><a href="/2018/07/27/CSS属性不同情况下的值">初始值、计算值、应用值和当前值</a></li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Shorthand_properties" target="_blank" rel="noopener">CSS简写属性 （CSS shorthand properties）</a></li>
-<li><a href="/2018/07/27/CSS弹性盒子">CSS弹性盒子 （CSS Flexible Box Layout）</a></li>
+<li><a href="/2018/07/28/CSS弹性盒子">CSS弹性盒子 （CSS Flexible Box Layout）</a></li>
 <li>CSS网格布局 （Grid Layout）</li>
 <li>媒体查询</li>
 </ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/17/safari/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴博">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/17/safari/" itemprop="url">overflow影响了safari中fixed定位的表现形式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-17T12:44:51+08:00">
-                2018-05-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="先上代码"><a href="#先上代码" class="headerlink" title="先上代码"></a>先上代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=&quot;utf-8&quot;/&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;style&gt;</div><div class="line">		* &#123;</div><div class="line">			box-sizing: border-box;</div><div class="line">		&#125;</div><div class="line">		html, body &#123;</div><div class="line">			margin: 0;</div><div class="line">			padding: 0;</div><div class="line">			background-color: gray;</div><div class="line">		&#125;</div><div class="line">		.app &#123;</div><div class="line">			position: relative;</div><div class="line">			width: 100%;</div><div class="line">			height: 100%;</div><div class="line">			padding-bottom: 40px;</div><div class="line">			overflow: hidden;</div><div class="line">		&#125;</div><div class="line">		.attend-course-list &#123;</div><div class="line">			position: relative;</div><div class="line">			z-index: 3 !important;</div><div class="line">			height: 100%;</div><div class="line">			overflow-y: auto;</div><div class="line">			overflow-x: hidden;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		.weui-actionsheet &#123;</div><div class="line">			position: fixed;</div><div class="line">			left: 0;</div><div class="line">			bottom: 0;</div><div class="line">			transform: translate(0, 0);</div><div class="line">			backface-visibility: hidden;</div><div class="line">			z-index: 5000;</div><div class="line">			width: 100%;</div><div class="line">			transition: transform .3s, -webkit-transform .3s;</div><div class="line">			background-color: #EFEFF4;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		.weui-actionsheet__menu &#123;</div><div class="line">			height: 400px;</div><div class="line">			background-color: #fff;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		.weui-actionsheet__action &#123;</div><div class="line">			margin-top: 6px;</div><div class="line">			background-color: #fff;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		.weui-actionsheet__cell &#123;</div><div class="line">			position: relative;</div><div class="line">			padding: 10px 0;</div><div class="line">			text-align: center;</div><div class="line">			font-size: 18px;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		.weui-actionsheet__cell:before &#123;</div><div class="line">			content: &quot; &quot;;</div><div class="line">			position: absolute;</div><div class="line">			left: 0;</div><div class="line">			top: 0;</div><div class="line">			right: 0;</div><div class="line">			height: 1px;</div><div class="line">			border-top: 1px solid #D9D9D9;</div><div class="line">			color: #D9D9D9;</div><div class="line">			-webkit-transform-origin: 0 0;</div><div class="line">			transform-origin: 0 0;</div><div class="line">			-webkit-transform: scaleY(0.5);</div><div class="line">			transform: scaleY(0.5);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		.weui-tabbar &#123;</div><div class="line">		  position: absolute;</div><div class="line">		  left: 0;</div><div class="line">		  right: 0;</div><div class="line">		  bottom: 0;</div><div class="line">		  z-index: 500;</div><div class="line">		  width: 100%;</div><div class="line">		  height: 50px;</div><div class="line">		  background-color: #12bcfc;</div><div class="line">		&#125;</div><div class="line">	&lt;/style&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div class=&quot;app&quot;&gt; </div><div class="line">	    	&lt;div class=&quot;attend-course-list&quot;&gt; </div><div class="line">		    	&lt;div class=&quot;mobile-scroll&quot;&gt; </div><div class="line">					&lt;div&gt;这里是数据列表块&lt;/div&gt;</div><div class="line">					&lt;div class=&quot;vux-actionsheet&quot; close-on-clicking-menu=&quot;true&quot;&gt;</div><div class="line">						&lt;div class=&quot;weui-actionsheet weui-actionsheet_toggle&quot;&gt;</div><div class="line">							&lt;div class=&quot;weui-actionsheet__menu&quot;&gt;</div><div class="line">								这里是上拉菜单块</div><div class="line">							&lt;/div&gt; </div><div class="line">						    &lt;div class=&quot;weui-actionsheet__action&quot;&gt;</div><div class="line">						        &lt;div class=&quot;weui-actionsheet__cell&quot;&gt;取消&lt;/div&gt;</div><div class="line">							&lt;/div&gt;</div><div class="line">						&lt;/div&gt;</div><div class="line">					&lt;/div&gt;</div><div class="line">				&lt;/div&gt;</div><div class="line">			&lt;/div&gt;</div><div class="line">			&lt;div class=&quot;weui-tabbar&quot;&gt;这里是底部menu块&lt;/div&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>A - “attend-course-list”(z-index：2)，它有一个后代元素C(z-index： 5000)</p>
-<p>B - “weui-tabbar”（z-index：3）</p>
-<p>A 和 B是兄弟元素，他们之间的z-index谁更大谁就在上面，这一点chrome和safari表现的是一样的</p>
-<h5 id="Chrome和-Safari中都具有的表现"><a href="#Chrome和-Safari中都具有的表现" class="headerlink" title="Chrome和 Safari中都具有的表现"></a>Chrome和 Safari中都具有的表现</h5><p>首先，fixed定位时根据viewport来定位的（除非祖先元素中有transform为非none的），肯定跟祖先元素无关，但是计算z-index的时候，C的z-index计算方式不能和A的同等来计算，C的z-index虽然是5000，实际计算为2.5000(A是2)，而B的z-index是3，所以C就算是fixed定位了也不能覆盖住B</p>
-<h4 id="对于overflow，Safari的表现："><a href="#对于overflow，Safari的表现：" class="headerlink" title="对于overflow，Safari的表现："></a>对于overflow，Safari的表现：</h4><p>如果A有了overflow(-y / -x)的属性值，C超出了A的高宽范围外的部分会被隐藏</p>
-<h4 id="对于overflow，Chrome的表现："><a href="#对于overflow，Chrome的表现：" class="headerlink" title="对于overflow，Chrome的表现："></a>对于overflow，Chrome的表现：</h4><p>如果A有了overflow(-y / -x)的属性值，C也不会管，C超出了A的高宽范围外的部分不会被隐藏</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/04/hexo搜索功能添加/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴博">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/04/hexo搜索功能添加/" itemprop="url">hexo搜索功能添加</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-04T20:51:37+08:00">
-                2018-03-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h4><ol>
-<li>安装搜索插件hexo-generator-searchdb ：npm install hexo-generator-searchdb –save</li>
-<li><p>在你的根目录的_config.yml中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">search:</div><div class="line">  path: search.xml</div><div class="line">  field: post</div><div class="line">  format: html</div><div class="line">  limit: 10000</div></pre></td></tr></table></figure>
-</li>
-<li><p>在你的主题(我使用的是next)的_config.yml中，将</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">local_search:</div><div class="line">  enable: false</div><div class="line"></div><div class="line">修改为：</div><div class="line">local_search:</div><div class="line">  enable: true</div></pre></td></tr></table></figure></li>
-</ol>
 
           
         
@@ -1926,8 +1988,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">吴博</p>
-              <p class="site-description motion-element" itemprop="description">技术博客</p>
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="风海生" />
+            
+              <p class="site-author-name" itemprop="name">风海生</p>
+              <p class="site-description motion-element" itemprop="description">古逸居</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -1937,7 +2003,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1948,7 +2014,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1959,7 +2025,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2028,7 +2094,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">吴博</span>
+  <span class="author" itemprop="copyrightHolder">风海生</span>
 
   
 </div>
@@ -2048,6 +2114,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
