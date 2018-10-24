@@ -7,9 +7,9 @@
 	"background_color": "#fff",
 	"icons": [
 		{
-			"src": "images/apple-touch-icon-next.png",
-			"sizes": "180×180",
-			"types": "image/png"
+			"src": "images/screen.jpg",
+			"sizes": "192×192",
+			"types": "image/jpg"
 		}
 	]
 }
