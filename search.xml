@@ -150,6 +150,18 @@
     <content type="text"><![CDATA[教程 安装搜索插件hexo-generator-searchdb ：npm install hexo-generator-searchdb –save 在你的根目录的_config.yml中添加 12345search: path: search.xml field: post format: html limit: 10000 在你的主题(我使用的是next)的_config.yml中，将 123456local_search: enable: false修改为：local_search: enable: true]]></content>
   </entry>
   <entry>
+    <title><![CDATA[Object.defineProperty]]></title>
+    <url>%2F2018%2F03%2F04%2FObject.defineProperty%E7%9A%84%E7%94%A8%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[Object.defineProperty的用法？其中的set和get的作用? 作用: 直接在一个对象上定义新属性，或者修改一个现有的属性，并会返回该对象。[Object.defineProperty(object, prop, descriptor)] descriptor(属性描述符): 分为数据描述符和存取描述符，两者取其一 数据描述符是一个具有值的属性 存取描述符是有getter-setter函数对，描述的属性 它们具有以下可选健值 configurable：为true时，属性值可被改变，以及除writable特性外的其他特性是否可以被修改，默认为false enumerable：为true时，属性才能出现在对象的枚举属性中(for…in循环和Object.keys()中杯枚举)。默认为false 数据描述符特有的可选健值: value：属性对象的值，可是任何JS值，默认为undefined writable：为true时，value才能被赋值运算符改变，默认为false 存取描述符特有的健值： get：给属性提供getter方法，如果没有getter则为undefined。该方法返回值被用作属性值，默认为undefined set： 给属性提供setter的方法，如果没有seeter则为undefined。该方法接受唯一参数，并将该参数的新值分配给该属性。默认为undefined 描述符可同时具有的健值 分类 configurable enumerable value writable get set 数据描述符 Yes Yes Yes Yes No No 存取描述符 Yes Yes No No Yes Yes 如果一个描述符不具有value，writable，get和set任意一个关键字，那么它将被认为是一个数据描述符。如果一个描述符同时有(value或writable)和(get或set)关键字，将会产生一个异常 set和get的作用? 1234567891011121314151617181920212223function Archiver() &#123; var temperature = null; var archive = []; Object.defineProperty(this, &apos;temperature&apos;, &#123; get: function() &#123; console.log(&apos;get!&apos;); return temperature; &#125;, set: function() &#123; trmperature = value; archive.push(&#123;val: temperature&#125;); &#125; &#125;); this.getArchive = function() &#123; return archive; &#125;&#125;var arc = new Archiver();arc.temperature; // 打印出&apos;get!&apos;arc.temperature = 11;arc.temperature = 13;arc.getArchive(); // [&#123;val:11&#125;, &#123;val: 13&#125;]]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>每日N问吾身</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[跨域的处理方式]]></title>
     <url>%2F2018%2F03%2F04%2F%E8%B7%A8%E5%9F%9F%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[跨域的原理？解决方式有哪些吗？ 如果两个页面的‘协议’，‘端口’，‘域名’三者任一不同时，便是跨域了。 解决方式： JSONP: 新增了script标签，通过get的方式发起请求并且将数据通过制定的回调函数传回来 CORS: (Cross-Origin Resource Sharing),此规范是针对于API容器的，以减轻跨域HTTP请求的风险。需要后台服务器在请求的response中添加Access-Control-Allow-Origin，*代表所有，也可以指定某个或某些网站 CORS使用场景: 使用 XMLHttpRequest 或 Fetch发起跨站 HTTP 请求。 Web 字体 (CSS 中通过 @font-face 使用跨站字体资源)，因此，网站就可以发布 TrueType 字体资源，并只允许已授权网站进行跨站调用。 WebGL 贴图 使用drawImage绘制 Images/video 画面到canvas. 样式表（使用 CSSOM） Scripts (for unmuted exceptions)]]></content>
@@ -160,18 +172,6 @@
         <tag>每日N问吾身</tag>
         <tag>JavaScript</tag>
         <tag>HTTP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Object.defineProperty]]></title>
-    <url>%2F2018%2F03%2F04%2FObject.defineProperty%E7%9A%84%E7%94%A8%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[Object.defineProperty的用法？其中的set和get的作用? 作用: 直接在一个对象上定义新属性，或者修改一个现有的属性，并会返回该对象。[Object.defineProperty(object, prop, descriptor)] descriptor(属性描述符): 分为数据描述符和存取描述符，两者取其一 数据描述符是一个具有值的属性 存取描述符是有getter-setter函数对，描述的属性 它们具有以下可选健值 configurable：为true时，属性值可被改变，以及除writable特性外的其他特性是否可以被修改，默认为false enumerable：为true时，属性才能出现在对象的枚举属性中(for…in循环和Object.keys()中杯枚举)。默认为false 数据描述符特有的可选健值: value：属性对象的值，可是任何JS值，默认为undefined writable：为true时，value才能被赋值运算符改变，默认为false 存取描述符特有的健值： get：给属性提供getter方法，如果没有getter则为undefined。该方法返回值被用作属性值，默认为undefined set： 给属性提供setter的方法，如果没有seeter则为undefined。该方法接受唯一参数，并将该参数的新值分配给该属性。默认为undefined 描述符可同时具有的健值 分类 configurable enumerable value writable get set 数据描述符 Yes Yes Yes Yes No No 存取描述符 Yes Yes No No Yes Yes 如果一个描述符不具有value，writable，get和set任意一个关键字，那么它将被认为是一个数据描述符。如果一个描述符同时有(value或writable)和(get或set)关键字，将会产生一个异常 set和get的作用? 1234567891011121314151617181920212223function Archiver() &#123; var temperature = null; var archive = []; Object.defineProperty(this, &apos;temperature&apos;, &#123; get: function() &#123; console.log(&apos;get!&apos;); return temperature; &#125;, set: function() &#123; trmperature = value; archive.push(&#123;val: temperature&#125;); &#125; &#125;); this.getArchive = function() &#123; return archive; &#125;&#125;var arc = new Archiver();arc.temperature; // 打印出&apos;get!&apos;arc.temperature = 11;arc.temperature = 13;arc.getArchive(); // [&#123;val:11&#125;, &#123;val: 13&#125;]]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>每日N问吾身</tag>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -211,9 +211,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[按钮点击时的阴影]]></title>
-    <url>%2F2018%2F02%2F28%2F%E6%8C%89%E9%92%AE%E7%82%B9%E5%87%BB%E6%97%B6%E7%9A%84%E9%98%B4%E5%BD%B1%2F</url>
-    <content type="text"><![CDATA[button的四种伪类？如何更改按钮点击时外部出现的阴影？1. :focus, :active, :visited, :hover 2. button:focus { outline: none; }]]></content>
+    <title><![CDATA[overflow能清除浮动?]]></title>
+    <url>%2F2018%2F02%2F28%2Foverflow%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%2F</url>
+    <content type="text"><![CDATA[为什么overflow: hidden; 能清除浮动？overflow: hidden后，元素的box-shadow还存在吗？visibility: hidden;1. 在没有明确设定容器高情况下，overflow: hidden;要计算内容全部高度才能确定在什么位置hidden，浮动的高度就要被计算进去，顺带达成了清理浮动的目标 2. box-shadow仍然存在]]></content>
       <categories>
         <category>CSS</category>
       </categories>
@@ -235,9 +235,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[overflow能清除浮动?]]></title>
-    <url>%2F2018%2F02%2F28%2Foverflow%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%2F</url>
-    <content type="text"><![CDATA[为什么overflow: hidden; 能清除浮动？overflow: hidden后，元素的box-shadow还存在吗？visibility: hidden;1. 在没有明确设定容器高情况下，overflow: hidden;要计算内容全部高度才能确定在什么位置hidden，浮动的高度就要被计算进去，顺带达成了清理浮动的目标 2. box-shadow仍然存在]]></content>
+    <title><![CDATA[按钮点击时的阴影]]></title>
+    <url>%2F2018%2F02%2F28%2F%E6%8C%89%E9%92%AE%E7%82%B9%E5%87%BB%E6%97%B6%E7%9A%84%E9%98%B4%E5%BD%B1%2F</url>
+    <content type="text"><![CDATA[button的四种伪类？如何更改按钮点击时外部出现的阴影？1. :focus, :active, :visited, :hover 2. button:focus { outline: none; }]]></content>
       <categories>
         <category>CSS</category>
       </categories>

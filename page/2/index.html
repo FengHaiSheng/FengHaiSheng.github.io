@@ -941,168 +941,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/04/跨域的处理方式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="风海生">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="古逸居">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/04/跨域的处理方式/" itemprop="url">跨域的处理方式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-04T20:44:13+08:00">
-                2018-03-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="跨域的原理？解决方式有哪些吗？"><a href="#跨域的原理？解决方式有哪些吗？" class="headerlink" title="跨域的原理？解决方式有哪些吗？"></a>跨域的原理？解决方式有哪些吗？</h4><ul>
-<li><p>如果两个页面的‘协议’，‘端口’，‘域名’三者任一不同时，便是跨域了。</p>
-</li>
-<li><p>解决方式：</p>
-<ol>
-<li>JSONP: 新增了script标签，通过get的方式发起请求并且将数据通过制定的回调函数传回来</li>
-<li><p>CORS: (Cross-Origin Resource Sharing),此规范是针对于API容器的，以减轻跨域HTTP请求的风险。需要后台服务器在请求的response中添加Access-Control-Allow-Origin，*代表所有，也可以指定某个或某些网站</p>
-<p>CORS使用场景:</p>
-<ol>
-<li>使用 XMLHttpRequest 或 Fetch发起跨站 HTTP 请求。</li>
-<li>Web 字体 (CSS 中通过 @font-face 使用跨站字体资源)，因此，网站就可以发布 TrueType 字体资源，并只允许已授权网站进行跨站调用。</li>
-<li>WebGL 贴图</li>
-<li>使用drawImage绘制</li>
-<li>Images/video 画面到canvas.</li>
-<li>样式表（使用 CSSOM）</li>
-<li>Scripts (for unmuted exceptions)</li>
-</ol>
-</li>
-</ol>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/04/Object.defineProperty的用法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1260,6 +1098,168 @@
 <p><strong>如果一个描述符不具有value，writable，get和set任意一个关键字，那么它将被认为是一个数据描述符。如果一个描述符同时有(value或writable)和(get或set)关键字，将会产生一个异常</strong></p>
 <ul>
 <li>set和get的作用? <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function Archiver() &#123;</div><div class="line">    var temperature = null;</div><div class="line">    var archive = [];</div><div class="line">    </div><div class="line">    Object.defineProperty(this, &apos;temperature&apos;, &#123;</div><div class="line">        get: function() &#123;</div><div class="line">            console.log(&apos;get!&apos;);</div><div class="line">            return temperature;</div><div class="line">        &#125;,</div><div class="line">        set: function() &#123;</div><div class="line">            trmperature = value;</div><div class="line">            archive.push(&#123;val: temperature&#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    this.getArchive = function() &#123; return archive; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arc = new Archiver();</div><div class="line">arc.temperature; // 打印出&apos;get!&apos;</div><div class="line">arc.temperature = 11;</div><div class="line">arc.temperature = 13;</div><div class="line">arc.getArchive(); // [&#123;val:11&#125;, &#123;val: 13&#125;]</div></pre></td></tr></table></figure></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/04/跨域的处理方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="风海生">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="古逸居">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/04/跨域的处理方式/" itemprop="url">跨域的处理方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-04T20:44:13+08:00">
+                2018-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="跨域的原理？解决方式有哪些吗？"><a href="#跨域的原理？解决方式有哪些吗？" class="headerlink" title="跨域的原理？解决方式有哪些吗？"></a>跨域的原理？解决方式有哪些吗？</h4><ul>
+<li><p>如果两个页面的‘协议’，‘端口’，‘域名’三者任一不同时，便是跨域了。</p>
+</li>
+<li><p>解决方式：</p>
+<ol>
+<li>JSONP: 新增了script标签，通过get的方式发起请求并且将数据通过制定的回调函数传回来</li>
+<li><p>CORS: (Cross-Origin Resource Sharing),此规范是针对于API容器的，以减轻跨域HTTP请求的风险。需要后台服务器在请求的response中添加Access-Control-Allow-Origin，*代表所有，也可以指定某个或某些网站</p>
+<p>CORS使用场景:</p>
+<ol>
+<li>使用 XMLHttpRequest 或 Fetch发起跨站 HTTP 请求。</li>
+<li>Web 字体 (CSS 中通过 @font-face 使用跨站字体资源)，因此，网站就可以发布 TrueType 字体资源，并只允许已授权网站进行跨站调用。</li>
+<li>WebGL 贴图</li>
+<li>使用drawImage绘制</li>
+<li>Images/video 画面到canvas.</li>
+<li>样式表（使用 CSSOM）</li>
+<li>Scripts (for unmuted exceptions)</li>
+</ol>
+</li>
+</ol>
+</li>
 </ul>
 
           
@@ -1779,7 +1779,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/按钮点击时的阴影/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/overflow清除浮动/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="风海生">
@@ -1798,7 +1798,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/28/按钮点击时的阴影/" itemprop="url">按钮点击时的阴影</a></h1>
+                <a class="post-title-link" href="/2018/02/28/overflow清除浮动/" itemprop="url">overflow能清除浮动?</a></h1>
         
 
         <div class="post-meta">
@@ -1872,8 +1872,8 @@
       
         
           
-            <h4 id="button的四种伪类？如何更改按钮点击时外部出现的阴影？"><a href="#button的四种伪类？如何更改按钮点击时外部出现的阴影？" class="headerlink" title="button的四种伪类？如何更改按钮点击时外部出现的阴影？"></a>button的四种伪类？如何更改按钮点击时外部出现的阴影？</h4><pre><code>1. :focus, :active, :visited, :hover
-2. button:focus { outline: none; }
+            <h4 id="为什么overflow-hidden-能清除浮动？overflow-hidden后，元素的box-shadow还存在吗？visibility-hidden"><a href="#为什么overflow-hidden-能清除浮动？overflow-hidden后，元素的box-shadow还存在吗？visibility-hidden" class="headerlink" title="为什么overflow: hidden; 能清除浮动？overflow: hidden后，元素的box-shadow还存在吗？visibility: hidden;"></a>为什么overflow: hidden; 能清除浮动？overflow: hidden后，元素的box-shadow还存在吗？visibility: hidden;</h4><pre><code>1. 在没有明确设定容器高情况下，overflow: hidden;要计算内容全部高度才能确定在什么位置hidden，浮动的高度就要被计算进去，顺带达成了清理浮动的目标
+2. box-shadow仍然存在
 </code></pre>
           
         
