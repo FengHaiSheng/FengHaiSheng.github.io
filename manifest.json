@@ -7,9 +7,14 @@
 	"background_color": "#fff",
 	"icons": [
 		{
-			"src": "menu.png",
+			"src": "images/apple-touch-icon-next.png",
 			"sizes": "192×192",
 			"types": "image/png"
 		},
+		{
+			"src": "images/apple-touch-icon-next.png",
+			"sizes": "144×144",
+			"types": "image/png"
+		}
 	]
 }
