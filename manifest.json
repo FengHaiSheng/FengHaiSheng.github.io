@@ -1,7 +1,7 @@
 {
 	"name": "PWA应用桌面跨界方式测试",
 	"short_name": "PWA",
-	"start_url": "/index2.html",
+	"start_url": "/index.html",
 	"display": "standslone",
 	"theme_color": "#12bcfc",
 	"background_color": "#fff",
