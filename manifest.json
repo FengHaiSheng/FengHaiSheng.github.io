@@ -2,18 +2,13 @@
 	"name": "PWA应用桌面跨界方式测试",
 	"short_name": "PWA",
 	"start_url": "/index.html",
-	"display": "standslone",
+	"display": "standalone",
 	"theme_color": "#12bcfc",
 	"background_color": "#fff",
 	"icons": [
 		{
 			"src": "images/apple-touch-icon-next.png",
-			"sizes": "192×192",
-			"types": "image/png"
-		},
-		{
-			"src": "images/apple-touch-icon-next.png",
-			"sizes": "144×144",
+			"sizes": "180×180",
 			"types": "image/png"
 		}
 	]
